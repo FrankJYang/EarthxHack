@@ -178,7 +178,7 @@ public class FindCity extends FindCountry{
 		java.io.InputStream stream = null;
 		try {
 			stream = new FileInputStream(
-					"//Users//frank//Desktop//testing2.txt");
+					"//Users//frank//Desktop//testing.txt");
 			BufferedReader in = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
 
 			main.readFilename(in); // read file
@@ -248,8 +248,8 @@ public class FindCity extends FindCountry{
 	}
 
 	private void readHTML(Document read) throws IOException {
-//		Elements country_list = read.select("ul#product-search-results");
-		Elements country_list = read.select("div#row-nohover");
+		Elements country_list = read.select("a.product-search-item");
+//		Elements country_list = read.select("div#row-nohover").select("div[id=cell300left]").select("ul").select("li");
 		System.out.println(country_list.isEmpty());
 		for (int i = 0; i < country_list.size(); i++) {
 			city_name.add(country_list.get(i).select("a.redglow").text());
